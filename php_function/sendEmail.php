@@ -1,3 +1,10 @@
 <?php
-    echo '<div id="test">Hello, World!</div>';
-?>
+// the message
+$msg = "First line of text\nSecond line of text";
+
+// use wordwrap() if lines are longer than 70 characters
+$msg = wordwrap($msg,70);
+
+// send email
+mail("honghuynhit@gmail.com","My subject",$msg);
+?> 
