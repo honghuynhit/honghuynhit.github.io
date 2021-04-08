@@ -614,7 +614,14 @@
 
     <script>
       $('#sendMessageButton').on('click', function(e){
-        alert('okie')
+        $.post( 
+            'php_function/sendEmail.php', // location of your php script
+            { name: "bob", user_id: 1234 }, // any data you want to send to the script
+            function( data ){  // a function to deal with the returned information
+
+                $( 'body ').append( data );
+
+            });
       })
     </script>
 
