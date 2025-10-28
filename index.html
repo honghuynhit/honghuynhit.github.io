@@ -311,6 +311,203 @@
                 padding: 20px;
             }
         }
+
+        /* ===== PRINT STYLES ===== */
+        @media print {
+            @page {
+                size: A4;
+                margin: 1cm;
+            }
+
+            * {
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+                color-adjust: exact !important;
+            }
+
+            body {
+                background: white !important;
+                padding: 0 !important;
+                margin: 0 !important;
+            }
+
+            .resume-container {
+                max-width: 100%;
+                box-shadow: none !important;
+                border-radius: 0 !important;
+                margin: 0 !important;
+                animation: none !important;
+            }
+
+            /* Header styles for print */
+            .header {
+                background: linear-gradient(135deg, #2c3e50, #34495e) !important;
+                padding: 20px !important;
+                page-break-after: avoid;
+                break-after: avoid;
+            }
+
+            .header::before {
+                display: none;
+            }
+
+            .name {
+                font-size: 2rem !important;
+                color: #f39c12 !important;
+                -webkit-text-fill-color: #f39c12 !important;
+            }
+
+            .title {
+                font-size: 1.1rem !important;
+                color: white !important;
+            }
+
+            .contact-info {
+                gap: 15px !important;
+                margin-top: 10px !important;
+            }
+
+            .contact-item {
+                color: white !important;
+                font-size: 0.85rem !important;
+            }
+
+            .contact-item i {
+                font-size: 0.9rem !important;
+            }
+
+            /* Main content */
+            .main-content {
+                padding: 20px !important;
+            }
+
+            .section {
+                margin-bottom: 25px !important;
+                page-break-inside: avoid;
+                break-inside: avoid;
+            }
+
+            .section-title {
+                font-size: 1.4rem !important;
+                margin-bottom: 12px !important;
+                page-break-after: avoid;
+                break-after: avoid;
+            }
+
+            /* Two column layout for print */
+            .two-column {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 20px !important;
+                margin-bottom: 20px !important;
+                page-break-inside: avoid;
+                break-inside: avoid;
+            }
+
+            /* Experience items - prevent breaking */
+            .experience-item {
+                background: #f8f9fa !important;
+                padding: 15px !important;
+                margin-bottom: 15px !important;
+                border-radius: 8px !important;
+                page-break-inside: avoid;
+                break-inside: avoid;
+                box-shadow: none !important;
+                transform: none !important;
+            }
+
+            .company-name {
+                font-size: 1.1rem !important;
+            }
+
+            .job-title {
+                font-size: 0.95rem !important;
+            }
+
+            .job-duration {
+                font-size: 0.85rem !important;
+            }
+
+            .job-details {
+                margin-top: 10px !important;
+            }
+
+            .job-details h4 {
+                font-size: 0.9rem !important;
+                margin-bottom: 5px !important;
+            }
+
+            .job-details ul {
+                margin-bottom: 8px !important;
+            }
+
+            .job-details li {
+                font-size: 0.85rem !important;
+                padding: 2px 0 !important;
+            }
+
+            /* Skills grid */
+            .skills-grid {
+                gap: 6px !important;
+                margin-top: 8px !important;
+            }
+
+            .skill-item {
+                background: #667eea !important;
+                padding: 4px 10px !important;
+                font-size: 0.75rem !important;
+                border-radius: 12px !important;
+            }
+
+            /* Summary list */
+            .summary-list li {
+                padding: 8px 0 !important;
+                font-size: 0.9rem !important;
+            }
+
+            /* Ratings */
+            .rating-item {
+                padding: 6px 0 !important;
+                font-size: 0.9rem !important;
+            }
+
+            /* Attitude text */
+            .attitude-text {
+                padding: 15px !important;
+                font-size: 0.85rem !important;
+                line-height: 1.6 !important;
+            }
+
+            /* Footer */
+            .footer {
+                background: #2c3e50 !important;
+                padding: 10px !important;
+                font-size: 0.75rem !important;
+                page-break-before: avoid;
+                break-before: avoid;
+            }
+
+            /* Hide animations and transitions */
+            * {
+                animation: none !important;
+                transition: none !important;
+            }
+
+            /* Ensure links are visible */
+            a {
+                text-decoration: none !important;
+            }
+
+            /* Page break controls */
+            .section.experience-section {
+                page-break-before: auto;
+            }
+
+            h2, h3, h4 {
+                page-break-after: avoid;
+                break-after: avoid;
+            }
+        }
     </style>
 </head>
 <body>
@@ -336,10 +533,6 @@
                         <i class="fas fa-file-pdf"></i>
                         <span>View PDF</span>
                     </a>
-                    <!-- <a href="https://1drv.ms/b/c/13164881A4BACFBC/EW2DIkQ0m6tJlvqLBXietJYBszGVXwIC-Ahla5TJrZVUXQ?e=qSBaWb" class="contact-item" target="_blank">
-                        <i class="fas fa-file-pdf"></i>
-                        <span>View PDF</span>
-                    </a> -->
                 </div>
             </div>
         </header>
@@ -371,7 +564,7 @@
                 </div>
             </div>
 
-            <div class="section">
+            <div class="section experience-section">
                 <h2 class="section-title">Professional Experience</h2>
                 
                 <div class="experience-item">
